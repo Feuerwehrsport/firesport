@@ -20,9 +20,10 @@ module Firesport
       return 'D' if time.blank?
       return 'D' if time >= INVALID_TIME
 
-      seconds = time.to_i / 100
-      deci = time.to_i % 100
-      "#{seconds},#{format('%02d', deci)}"
+      minus = time.to_i.negative? ? '-' : ''
+      deci = time.to_i.abs % 100
+      seconds = (time.to_i.abs - deci) / 100
+      "#{minus}#{seconds},#{format('%02d', deci)}"
     end
   end
 end
