@@ -12,6 +12,10 @@ module Firesport
     def time_invalid?
       time >= INVALID_TIME
     end
+
+    def time_valid?
+      !time_invalid?
+    end
   end
 
   class Time
